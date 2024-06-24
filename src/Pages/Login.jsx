@@ -129,7 +129,7 @@ function Login(){
                 input.removeEventListener("blur", removeFocus);
             });
         };
-    }, []);
+    });
 
     useEffect(() => {
         const fetchData = async () => {

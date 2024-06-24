@@ -58,7 +58,7 @@ const StoreWomenRecord = () => {
             }
         };
         fetchData();
-    }, []);
+    });
 
     useEffect(() => {
         updateProgress();

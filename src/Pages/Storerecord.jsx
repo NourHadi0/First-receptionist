@@ -60,7 +60,7 @@ const Storerecord = () => {
             }
         };
         fetchData();
-    }, []);
+    });
 
     useEffect(() => {
         updateProgress();
