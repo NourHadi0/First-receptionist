@@ -91,7 +91,7 @@ function Login(){
               const token = responseData.data.token;
               const name = responseData.data.employee.user_name;
               Login(token, name);
-              navigate('/Home');
+              navigate('/');
           }
           else{
             toast.error('فشل تسجيل الدخول');
@@ -129,7 +129,7 @@ function Login(){
                 input.removeEventListener("blur", removeFocus);
             });
         };
-    });
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {

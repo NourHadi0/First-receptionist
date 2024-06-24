@@ -47,24 +47,22 @@ const Storerecord = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const subdistrictsResponse = await axios.get(`${URL.apiUrl}getSubdistrict`);
-                setSubdistricts(subdistrictsResponse.data);
+    const fetchData = async () => {
+        try {
+            const subdistrictsResponse = await axios.get(`${URL.apiUrl}getSubdistrict`);
+            setSubdistricts(subdistrictsResponse.data);
 
-                const districtsResponse = await axios.get(`${URL.apiUrl}getDistrict`);
-                setDistricts(districtsResponse.data);
-            } catch (error) {
-                toast.error('خطأ غير معروف')
-            }
-        };
-        fetchData();
-    });
-
+            const districtsResponse = await axios.get(`${URL.apiUrl}getDistrict`);
+            setDistricts(districtsResponse.data);
+        } catch (error) {
+            toast.error('خطأ غير معروف')
+        }
+    };
+    
     useEffect(() => {
         updateProgress();
-    }, [activeStep]);
+        fetchData();
+    }, [fetchData, activeStep]);
 
     const updateProgress = () => {
         const steps = document.querySelectorAll('.step');
@@ -126,7 +124,7 @@ const Storerecord = () => {
             if(response.ok){
                 toast.success('تمت إضافة السجل بنجاح')
                 setTimeout(() => {
-                    navigate('/Home');  // Replace with your desired route
+                    navigate('/');  // Replace with your desired route
                 }, 3000); 
             }
 

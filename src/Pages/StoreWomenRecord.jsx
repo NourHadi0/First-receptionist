@@ -58,7 +58,7 @@ const StoreWomenRecord = () => {
             }
         };
         fetchData();
-    });
+    }, []);
 
     useEffect(() => {
         updateProgress();
@@ -124,7 +124,7 @@ const StoreWomenRecord = () => {
             if(response.ok){
                 toast.success('تمت إضافة السجل بنجاح')
                 setTimeout(() => {
-                    navigate('/Home'); 
+                    navigate('/'); 
                 }, 3000); 
             }
 
