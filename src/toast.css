@@ -1,0 +1,8 @@
+
+/* Custom purple color for error progress bar */
+.Toastify__progress-bar--success {
+    background-color: #0298cf !important; /* Custom color for the progress bar */
+}
+.Toastify__toast--success .Toastify__toast-icon svg {
+    fill: #0298cf !important; /* Custom color for the success icon */
+}

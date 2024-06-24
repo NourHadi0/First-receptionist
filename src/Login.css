@@ -1,0 +1,303 @@
+body{
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.multi-form-cotainer{
+    width: 480px;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px !important;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.multi-form-cotainer form{
+    width: 370px;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    transition: 0.5s;
+}
+
+.btn-box{
+    width: 100%;
+    text-align: center;
+    gap: 1rem;
+    margin: 0 auto;
+
+}
+
+#Form2{
+    right: 570px;
+}
+
+#Form3{
+    right: 570px;
+}
+
+
+.login-button{
+    display: inline;
+    padding: 10px;
+	width: 45%;
+    background-color: #38bc9e;
+    color: white;
+    height: auto;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+    font-size: 1rem;
+	cursor: pointer;
+	transition: .5s;
+    margin: 2rem 0.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap');
+
+
+:root{
+    --primary-color: #38bc9e;
+    --font-family: "Scheherazade New";
+    --base-color: #ffffff;
+    --lightGray-color: #d9d9d9;
+    --darkGray-color: #999999
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.LoginBody{
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+.wave{
+    position: fixed;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    padding: 0 2rem;
+}
+
+.login-img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: right; /* Align text to the right */
+}
+
+.login-img img{
+    width: 500px;
+}
+
+.login-form{
+    width: 360px;
+}
+
+.login-content img{
+    height: 100px;
+}
+
+.login-content h2{
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.login-content h4{
+    margin: 30px 0 0 0;
+    color: var(--lightGray-color);
+    font-size: 1rem;
+}
+
+.login-content .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid var(--lightGray-color);
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.login-i{
+	color:  var(--lightGray-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-i .login-icon{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h6{
+    position: absolute;
+    right: 10px; /* Adjust the right position */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--darkGray-color);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: var(--primary-color);
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h6{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > .icon{
+	color: var(--primary-color);
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.login-select{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px #d9d9d9 solid;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+    margin: 1rem 0 0.2rem 0;
+    cursor: pointer;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+.login-submit-btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #6acdb5, var(--primary-color), #6acdb5);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: var(--base-color);
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.submit-login-btn:hover{
+	background-position: right;
+}
+
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.login-img img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.login-container{
+		grid-template-columns: 1fr;
+	}
+
+	.login-img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+}
+
+.login-option{
+    overflow-x: scroll;
+}
