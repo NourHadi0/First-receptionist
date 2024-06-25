@@ -64,8 +64,8 @@ const AppHeader = ({ active }) => {
       });
       if (response.ok) {
         toast.success('تمت إضافة الموعد بنجاح.');
-      } else {
-        toast.error('حدث خطأ أثناء إضافة الموعد.');
+      } else if(response.status === 400) {
+        toast.error('الموظف المطلوب و السجل لا يتوافقان');
         console.log(response)
       }
     } catch (error) {

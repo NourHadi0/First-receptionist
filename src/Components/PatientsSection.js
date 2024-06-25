@@ -28,7 +28,7 @@ const PatientsSection = () => {
                 const data = await response.json();
                 if (data.status) {
                     setPatientData(data.data);
-                    console.log(patientData)
+                    console.log('Patient data:', data.data);
                 } else {
                     setPatientData(null);
                 }
@@ -51,6 +51,12 @@ const PatientsSection = () => {
     useEffect(() => {
         if (patientData) {
             console.log('Patient data updated:', patientData);
+            const addressName = patientData[0]?.addresses?.[0]?.name;
+            if (addressName !== undefined) {
+                console.log('Address name:', addressName);
+            } else {
+                console.log('Address name is undefined');
+            }
         }
     }, [patientData]);
 
@@ -60,7 +66,7 @@ const PatientsSection = () => {
             {loading ? (
                 <div className="loading-container"><Loading /></div>
             ) : patientData ? (
-                <PatientRecord patientData={patientData} id={patientData[0].id} updatePatientData={updatePatientData} />
+                <PatientRecord patientData={patientData} id={patientData[0].id} age={patientData[0].age} updatePatientData={updatePatientData} />
             ) : (
                 <div className='centered'>
                     <img src={search} alt='search' />

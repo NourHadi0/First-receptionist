@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Login(){
     const { Login } = useAuth();
     const navigate = useNavigate();
-  
+   
     const [medicalCenters, setMedicalCenters] = useState([]);
     const [activities, setActivities] = useState([]);
     const [coverages, setCoverages] = useState([]);
@@ -82,17 +82,23 @@ function Login(){
             }),
         });
             const responseData = await response.json();
-
             console.log(responseData)
-            console.log('Token',responseData.data.token)
-            console.log(responseData.data.employee.user_name)
+            console.log(responseData.data.role[0])
+            console.log(responseData.status)
 
-            if(response.status === 200){
+            if(responseData.status === true){
+                if(responseData.status === true && responseData.data.role[0] !== 'receptionist'){
+                console.log('first if', responseData.data.role[0])
+                toast.error('هذا التطبيق مخصص لموظفي الاستقبال')
+                setStep(1);
+            }
+            else{
               const token = responseData.data.token;
               const name = responseData.data.employee.user_name;
               Login(token, name);
               navigate('/');
           }
+            }
           else{
             toast.error('فشل تسجيل الدخول');
           }

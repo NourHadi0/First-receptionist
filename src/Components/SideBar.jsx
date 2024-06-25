@@ -6,10 +6,17 @@ import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../AuthContext';
 import '../Home.css'
-
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = ({ selectedSection, onSelectSection }) => {
     const { Logout } = useAuth();
+    const navigate = useNavigate();
+
+    const LogoutIssues = () => {
+        Logout();
+        navigate()
+    }
+
   return (
     <div className='Sidebar'>
         <div className="logo">UB</div>
@@ -40,7 +47,7 @@ const SideBar = ({ selectedSection, onSelectSection }) => {
             </div>
             <div>
                 <li className="logout">
-                    <div className='a-div' onClick={() => Logout()}>
+                    <div className='a-div' onClick={() => LogoutIssues()}>
                         <FontAwesomeIcon icon={faSignOutAlt} className='sidebar-icon' />
                         <span>تسجيل الخروج</span>
                     </div>

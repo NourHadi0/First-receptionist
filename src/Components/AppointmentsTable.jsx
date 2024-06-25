@@ -109,6 +109,17 @@ const AppointmentsTable = () => {
         return true;
     });
 
+    const formatTime = (timeString) => {
+        if (!timeString) return '';
+        const date = new Date(timeString);
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const period = hours < 12 ? 'صباحاً' : 'ظهراً';
+        const formattedHours = hours % 12 || 12; // Adjust hours to 12-hour format
+        const formattedMinutes = minutes.toString().padStart(2, '0');
+        return `${formattedHours}:${formattedMinutes} ${period}`;
+    };
+
     return (
         <div>
             <AppHeader active={active} onAddAppointment={addNewAppointment} />
@@ -141,7 +152,7 @@ const AppointmentsTable = () => {
                                         <td>{index + 1}</td>
                                         <td>{item.medical_record_id}</td>
                                         <td>{item.fullName}</td>
-                                        <td>{item.created_at}</td>
+                                        <td>{formatTime(item.created_at)}</td>
                                         <td>
                                             {isSmallLoading === item.id ? (
                                                 <SmallLoading />

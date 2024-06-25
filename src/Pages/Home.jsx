@@ -10,7 +10,7 @@ import UserSection from '../Components/UserSection';
 const Home = () => {
     const [selectedSection, setSelectedSection] = useState('قسم مواعيد اليوم');
     const [text, setText] = useState('جداول مواعيد اليوم');
-    const { token } = useAuth();
+    const { token, role, Logout } = useAuth();
     const navigate = useNavigate();
 
     const handleSectionSelect = (section) => {
@@ -32,7 +32,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if (!token) {
+        if (!token || role !== 'receptionist'){
             navigate('/Login');
         }
     }, [token, navigate]);
